@@ -1,0 +1,50 @@
+body {
+	font-size: 100%;
+	background-image: linear-gradient(to right, white, yellow, white);
+}
+
+#base{
+	width: 70% !important;
+	margin-left: 15% !important;
+	margin-right: 15% !important;
+	height: 1300px !important;
+		
+}
+
+#header{
+	width: 100% !important;
+	height: 15% !important;
+	margin-bottom: 3% !important;
+	background-color: rgba(255,255,255,0.6) !important;
+	border-radius: 10px !important;
+}
+
+#conteudo{
+	width: 100% !important;
+	height: 67% !important;
+	background-color: rgba(255,255,255,0.6) !important;
+	border-radius: 10px !important;
+
+}
+
+#footer{
+	margin-top: 2% !important;
+	width: 100% !important;
+	height: 13% !important;
+	background-color: rgba(255,255,255,0.6) !important;
+	border-radius: 10px !important;
+}
+
+.pesquisa{
+	border: 1px solid #ff0000 !important;
+	border-radius: 5px !important;
+}
+
+.telaMovel{
+	width: 98% !important;
+}
+
+.logo{
+	width: 17% !important;
+	height: 100% !important;
+}

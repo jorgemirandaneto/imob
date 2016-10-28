@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>principal</title>
+</h:head>
+<h:body>
+	<ui:composition template="template/layout.xhtml">
+		<ui:define name="corpo">
+
+			<h3 style="margin-top: 0">Basic</h3>
+			<p:tabView dir="rtl" styleClass="pesquisa">
+				<p:tab title="Busca por imóvel">
+					<h:panelGrid columns="2" cellpadding="10">
+
+						<h:outputText value="pagina 1" />
+					</h:panelGrid>
+				</p:tab>
+				<p:tab title="Busca por código">
+					<h:panelGrid columns="2" cellpadding="10">
+
+						<h:outputText value="página 2" />
+					</h:panelGrid>
+				</p:tab>
+			</p:tabView>
+
+			<h3>Fade</h3>
+			<p:imageSwitch effect="fade" id="fadeEffect" styleClass="telaMovel">
+				<ui:repeat value="#{principalBean.images}" var="imagem"
+					id="fadeEffectImages">
+					<p:graphicImage name="imagens/telamovel/#{imagem}" id="imagem" />
+				</ui:repeat>
+			</p:imageSwitch>
+
+
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
