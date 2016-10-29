@@ -13,7 +13,6 @@
 	<ui:composition template="template/layout.xhtml">
 		<ui:define name="corpo">
 
-			<h3 style="margin-top: 0">Basic</h3>
 			<p:tabView dir="rtl" styleClass="pesquisa">
 				<p:tab title="Busca por imóvel">
 					<h:panelGrid columns="2" cellpadding="10">
@@ -28,15 +27,15 @@
 					</h:panelGrid>
 				</p:tab>
 			</p:tabView>
-
-			<h3>Fade</h3>
-			<p:imageSwitch effect="fade" id="fadeEffect" styleClass="telaMovel">
-				<ui:repeat value="#{principalBean.images}" var="imagem"
-					id="fadeEffectImages">
-					<p:graphicImage name="imagens/telamovel/#{imagem}" id="imagem" />
-				</ui:repeat>
-			</p:imageSwitch>
-
+			<br />
+			<div align="center">
+				<p:imageSwitch effect="fade" id="fadeEffect" styleClass="telaMovel">
+					<ui:repeat value="#{principalBean.images}" var="imagem"
+						id="fadeEffectImages">
+						<p:graphicImage name="imagens/telamovel/#{imagem}" id="imagem" styleClass="imagensMovel" />
+					</ui:repeat>
+				</p:imageSwitch>
+			</div>
 
 
 		</ui:define>
