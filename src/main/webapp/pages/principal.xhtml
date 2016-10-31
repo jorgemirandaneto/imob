@@ -22,12 +22,12 @@
 						<p:panelGrid columns="3"
 							columnClasses="ui-grid-col-4,ui-grid-col-4,ui-grid-col-4"
 							layout="grid" styleClass="ui-panelgrid-blank painelPesquisa">
-							<p:selectOneMenu id="cidade" filter="true" value=""
+							<p:selectOneMenu id="cidade" filter="true" value="#{principalBean.cidade}"
 								styleClass="listpesquisa"
 								converter="omnifaces.SelectItemsConverter">
 								<f:selectItem itemValue="" itemLabel="Selecione uma cidade" />
-								<f:selectItems value="" var="cidade" itemValue="#{cidade}"
-									itemLabel="#{estado.sigla}" />
+								<f:selectItems value="#{principalBean.cidades}" var="cidade" itemValue="#{cidade}"
+									itemLabel="#{cidade.nome}" />
 							</p:selectOneMenu>
 							<p:selectOneMenu id="imovel" filter="true" value=""
 								styleClass="listpesquisa"
