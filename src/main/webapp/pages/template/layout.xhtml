@@ -11,44 +11,36 @@
 	<h:outputStylesheet library="css" name="estilo.css" />
 </h:head>
 <h:body>
-	<div id="base">
-		<p:growl id="mensagem" />
-		
-		<div id="header" >
-			<p:graphicImage library="imagens" name="logo.png" id="logo" styleClass="logo" />
-			<div class="textoDireitaTopo">
-				<div class="areaMissao">
-					<p:outputLabel styleClass="textoMissao" value="Garantindo amelhor qualidade de vida pra você!"/>
-					<p:outputLabel styleClass="texto" value="Imob tem uma ampla experiência de mercado, e nosso intuito é cosquistar você, com o que há de melhor!"/>
-				</div>
-				<div class="areaContato">
-					<p:graphicImage library="imagens" name="centraldeatend.png" id="centraldeatend" styleClass="centraldeatend" />
-				</div>
-			</div>
+	<p:growl id="mensagem" />
+	<h:form id="formHeader">
+		<div align="right" id="header">
+			<p:commandLink style="font-size:12px; color:#fff" value="Login |"></p:commandLink>
+			<p:commandLink style="font-size:12px; color:#fff"
+				oncomplete="PF('dilogoCadastrar').show();" value=" Cadastre-se"></p:commandLink>
 		</div>
-		<!-- Topo + Menu -->
+	</h:form>
+	<!-- Topo + Menu -->
 
-		<!-- Dialogo de Confirmação -->
-		<h:form>
-			<p:confirmDialog id="dialogConfirm" global="true">
-				<p:commandButton value="Sim" type="button"
-					styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
-				<p:commandButton value="Não" type="button"
-					styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
-			</p:confirmDialog>
-		</h:form>
-		<!-- Dialogo de Confirmação -->
+	<!-- Dialogo de Confirmação -->
+	<h:form>
+		<p:confirmDialog id="dialogConfirm" global="true">
+			<p:commandButton value="Sim" type="button"
+				styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+			<p:commandButton value="Não" type="button"
+				styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+		</p:confirmDialog>
+	</h:form>
+	<!-- Dialogo de Confirmação -->
 
-		<div id="conteudo">
-			<ui:insert name="corpo">
+	<div id="conteudo">
+		<ui:insert name="corpo">
 
-			</ui:insert>
-		</div>
-
-		<!-- Rodapé -->
-		<div id="footer"></div>
-		<!-- Rodapé -->
+		</ui:insert>
 	</div>
+
+	<!-- Rodapé -->
+	<div id="footer"></div>
+	<!-- Rodapé -->
 
 </h:body>
 </html>

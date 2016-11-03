@@ -1,29 +1,28 @@
 body {
 	font-size: 100%;
-	background-image: linear-gradient(to right, white, yellow, white);
+	background-image: linear-gradient(to right, white, #C0C0C0, white);
+	margin: 0px;
 }
 
-#base {
-	width: 72% !important;
-	margin-left: 15% !important;
-	margin-right: 15% !important;
-	height: 1300px !important;
+#baseImagem {
+	width: 100%;
+	height: 600px;
+}
+
+#baseProcura {
+	width: 70%;
+	height: 30%;
+	position: absolute;
+	left: 13%;
+	top: 32%;
+	z-index: 2px;
+	background-color: rgba(255, 255, 255, 0.6);
+	border-radius: 10px;
 }
 
 #header {
-	width: 100% !important;
-	height: 15% !important;
-	margin-bottom: 3% !important;
-	background-color: rgba(255, 255, 255, 0.7) !important;
-	border-radius: 10px !important;
-}
-
-#conteudo {
-	width: 100% !important;
-	height: 67% !important;
-	background-color: rgba(255, 255, 255, 0.7) !important;
-	border-radius: 10px !important;
-	padding-top: 5px;
+	width: 100%;
+	background-color: #4682B4;
 }
 
 #footer {
@@ -34,296 +33,216 @@ body {
 	border-radius: 10px 10px 10px 10px !important;
 }
 
-/*Inicio tela de pesquisa*/
-.painelPesquisa {
-	border: none !important;
+.background {
+	width: 100%;
+	height: 100%;
 }
 
-.ui-grid .ui-grid-row {
-	display: inherit !important;
+.logoFlutuante {
+	width: 10%;
+	height: 27%;
+	position: absolute;
+	left: 87%;
+	top: 4%;
+	z-index: 3;
 }
 
-.pesquisa {
-	margin-left: 1%;
-	width: 97%;
-	height: 100px !important;
-	border-radius: 5px !important;
-	background-image: linear-gradient(to bottom, #FFFFFF, #FFFFFF, #F4A460)
-		!important;
-	display: table !important;
-	text-align: left !important;
-}
-
-.pesquisa .listpesquisa {
-	width: 80% !important;
-}
-
-.ui-state-default, .ui-widget-content .ui-state-default {
-	background-image: -webkit-linear-gradient(top, #ffffff, #F4A460)
-		!important;
-	font-size: 16px;
-}
-
-.pesquisa .texto {
-	margin-top: 10% !important;
-	font-size: 12px !important;
-	font-family: Book Antiqua !important;
-	font-weight: bold !important;
-}
-
-/*tela de pesquisa selecionada*/
-.ui-tabs.ui-tabs-top .ui-tabs-nav.ui-widget-header li.ui-state-active {
-	font-size: 12px !important;
-	font-family: Book Antiqua !important;
-	font-weight: bold !important;
-	background-image: linear-gradient(to top, #FFFFFF, #FFFFFF, #F4A460)
-		!important;
-	border: none !important;
-	color: #ff0000 !important;
-}
-
-.ui-tabs.ui-tabs-top .ui-tabs-nav.ui-widget-header li.ui-state-active a
-	{
-	color: #ff0000 !important;
-}
-/*tela de pesquisa não selecionada*/
-.ui-tabs.ui-tabs-top .ui-tabs-nav.ui-widget-header li {
-	font-size: 12px !important;
-	font-family: Book Antiqua !important;
-	border: none !important;
-	font-weight: bold !important;
-	color: #ff0000 !important;
-	background-image: linear-gradient(to top, #FFFFFF, #FFFFFF, #F4A460)
-		!important;
-}
-
-.ui-tabs.ui-tabs-top .ui-tabs-nav.ui-widget-header li a {
-	color: #000000 !important;
-}
-
-.ui-tabs.ui-tabs-top .ui-tabs-nav.ui-widget-header {
-	border-bottom: none !important;
-}
-
-.ui-tabs.ui-tabs-top {
-	border-bottom: none !important;
-}
-
-/*fim tela de pesquisa*/
-.telaMovel {
-	width: 98% !important;
-	height: 240px !important;
-}
-
-.imagensMovel {
+.logoFlutuante .logo {
 	width: 100% !important;
 	height: 100% !important;
+	display: block;
 }
 
-.logo {
-	width: 15% !important;
-	height: 96% !important;
+.textoFlutuante {
+	width: 60%;
+	height: 27%;
+	position: absolute;
+	left: 30%;
+	top: 15%;
+	z-index: 3;
+}
+
+.textoFlutuante .textoVis {
+	text-shadow: 0 3px 10px #000;
+	font-family: Constantia;
+	font-size: 30px !important;
+	color: #fff;
+}
+
+#baseProcura .topo1 {
+	padding-top: 1%; width : 100%;
+	height: 10%;
 	float: left;
-	display: block;
-	margin-left: 2% !important;
-	margin-top: 0.5% !important;
-}
-
-.textoDireitaTopo {
-	width: 82%;
-	height: 100%;
-	float: right;
-	display: block;
-}
-
-.textoDireitaTopo .areaMissao {
 	width: 100%;
-	height: 49%;
-	float: right;
-	display: block;
 }
 
-.textoDireitaTopo .areaContato {
+#baseProcura .topo2 {
 	width: 100%;
-	height: 49%;
-	float: right;
-	display: block;
+	height: 37%;
+	float: left;
 }
 
-.textoDireitaTopo .areaMissao .textoMissao {
-	text-align: right !important;
-	float: right !important;
-	font-size: 22px !important;
-	font-family: Book Antiqua !important;
-	margin-right: 3%;
-	margin-top: 2%;
+#baseProcura .baixo1 {
+	width: 100%;
+	height: 23%;
+	float: left;
 }
 
-.textoDireitaTopo .areaMissao .texto {
-	width: 50%;
-	text-align: right !important;
-	float: right !important;
-	font-size: 16px !important;
-	font-family: Book Antiqua !important;
-	margin-right: 3%;
-	margin-top: 0.2%;
+#baseProcura .baixo2 {
+	width: 100%;
+	height: 23%;
+	float: left;
 }
 
-.textoDireitaTopo .areaContato .centraldeatend {
+#baseProcura .botaoComprar {
+	border-radius: 0px 7px 7px 0px;
+	width: 15%;
+	height: 50%;
+}
+
+#baseProcura .botaoAlugar {
+	border-radius: 7px 0px 0px 7px;
+	width: 15%;
+	height: 50%;
+}
+
+#baseProcura .textoPos1 {
+	margin-left: 3%;
+	margin-top: 1%;
+	float: left;
+}
+
+#baseProcura .textoPos2 {
+	margin-left: 12%;
+	margin-top: 1%;
+	float: left;
+}
+
+#baseProcura .textoPos3 {
+	margin-left: 12%;
+	margin-top: 1%;
+	float: left;
+}
+
+#baseProcura .texto {
+	font-family: Bookman Old Style;
+}
+
+#baseProcura .alinSelect {
+	margin-left: 3%;
+	float: left;
+}
+
+#baseProcura .botaoPesquisar {
+	border-radius: 7px 7px 7px 7px;
+	width: 15%;
+	height: 70%;
+	background: #ff5a00;
+	color: #fff;
+	margin-left: 2%;
+}
+
+.alinEsquerdaTopo {
+	top: 3px;
+	float: left !important;
+	font-weight: bold;
+	position: relative;
+	margin-right: 0px !important;
+	margin-bottom: 14px !important;
+	margin-left: 5px !important;
+}
+
+.alinDireitaTopo {
+	margin-top: 0px;
 	float: right !important;
-	margin-right: 3%;
-	height: 40%;
-	width: 25%;
-	margin-top: 6%;
+	position: relative !important;
+	margin-right: 0px !important;
+	bottom: 4px;
+}
+
+.textoTitulo {
+	font-weight: bold !important;
+	font-size: 13px !important;
+}
+
+
+.botaoSalvar {
+	color: #fff !important;
+	background: #00BFFF !important;
+	font-weight: bold !important;
+	border-color: #fff !important;
+	font-size: 13px !important;
+	margin-left: 5px !important;
+	margin-right: 0px !important;
+	margin-top: 5px !important;
+	text-shadow: none !important;
+}
+
+.botaoSalvar:hover {
+	color: #fff !important;
+	background: #0000FF !important;
+	font-weight: bold !important;
+	border-color: #fff !important;
+	font-size: 13px !important;
+	margin-left: 5px !important;
+	margin-right: 0px !important;
+	margin-top: 5px !important;
+	text-shadow: none !important;
+	margin-left: 5px !important;
+	margin-right: 0px !important;
+	margin-top: 5px !important;
+}
+
+.botaoFechar {
+	color: #fff !important;
+	background: #FF0000 !important;
+	font-weight: bold !important;
+	border-color: #fff !important;
+	font-size: 13px !important;
+	margin-left: 5px !important;
+	margin-right: 0px !important;
+	margin-top: 5px !important;
+	text-shadow: none !important;
+	margin-left: 5px !important;
+	margin-right: 0px !important;
+	margin-top: 5px !important;
+}
+
+.botaoFechar:hover {
+	color: #fff !important;
+	background: #A52A2A !important;
+	font-weight: bold !important;
+	border-color: #fff !important;
+	font-size: 13px !important;
+	margin-left: 5px !important;
+	margin-right: 0px !important;
+	margin-top: 5px !important;
+	text-shadow: none !important;
+	margin-left: 5px !important;
+	margin-right: 0px !important;
+	margin-top: 5px !important;
+}
+
+.tamanhoDialogo {
+	width: 60% !important;
+}
+
+.ui-dialog-title{
+	width: 100% !important;
+}
+
+.ui-dialog.ui-widget-content .ui-dialog-titlebar{
+	border: none !important;
 }
 
 @media screen and (max-width: 1016px) {
-	.pesquisa .listpesquisa {
-		width: 80% !important;
-		min-width: 80% !important;
-	}
-	.ui-state-default, .ui-widget-content .ui-state-default {
-		background-image: -webkit-linear-gradient(top, #ffffff, #F4A460)
-			!important;
-		font-size: 13px !important;
-	}
 }
 
 @media screen and (max-width: 832px) {
-	.pesquisa .listpesquisa {
-		width: 80% !important;
-		min-width: 80% !important;
-		font-size: 10px !important;
-	}
-	.logo {
-		width: 23% !important;
-		height: 96% !important;
-		float: left;
-		display: block;
-		margin-left: 2% !important;
-		margin-top: 0.5% !important;
-	}
-	.textoDireitaTopo {
-		width: 75%;
-		height: 100%;
-		float: right;
-		display: block;
-	}
-	.textoDireitaTopo .areaMissao .textoMissao {
-		text-align: right !important;
-		float: right !important;
-		font-size: 17px !important;
-		font-family: Book Antiqua !important;
-		margin-right: 3%;
-		margin-top: 2%;
-	}
-	.textoDireitaTopo .areaMissao .texto {
-		width: 50%;
-		text-align: right !important;
-		float: right !important;
-		font-size: 12px !important;
-		font-family: Book Antiqua !important;
-		margin-right: 3%;
-		margin-top: 0.2%;
-	}
-	.textoDireitaTopo .areaContato .centraldeatend {
-		float: right !important;
-		margin-right: 3%;
-		height: 40%;
-		width: 35%;
-		margin-top: 10%;
-	}
 }
 
 @media screen and (max-width: 600px) {
-	.ui-state-default, .ui-widget-content .ui-state-default {
-		background-image: -webkit-linear-gradient(top, #ffffff, #F4A460)
-			!important;
-		font-size: 16px !important;
-	}
-	.logo {
-		width: 30% !important;
-		height: 96% !important;
-		float: left;
-		display: block;
-		margin-left: 2% !important;
-		margin-top: 0.5% !important;
-	}
-	.textoDireitaTopo {
-		width: 68%;
-		height: 100%;
-		float: right;
-		display: block;
-	}
-	.textoDireitaTopo .areaMissao .textoMissao {
-		text-align: right !important;
-		float: right !important;
-		font-size: 14px !important;
-		font-family: Book Antiqua !important;
-		margin-right: 3%;
-		margin-top: 2%;
-	}
-	.textoDireitaTopo .areaMissao .texto {
-		width: 50%;
-		text-align: right !important;
-		float: right !important;
-		font-size: 10px !important;
-		font-family: Book Antiqua !important;
-		margin-right: 3%;
-		margin-top: 0.2%;
-	}
-	.textoDireitaTopo .areaContato .centraldeatend {
-		float: right !important;
-		margin-right: 3%;
-		height: 40%;
-		width: 50%;
-		margin-top: 17%;
-	}
 }
 
 @media screen and (max-width: 420px) {
-	#base {
-		width: 95% !important;
-		margin-left: 2% !important;
-		margin-right: 2% !important;
-		height: 1300px !important;
-	}
-	.logo {
-		width: 40% !important;
-		height: 96% !important;
-		float: left;
-		display: block;
-		margin-left: 2% !important;
-		margin-top: 0.5% !important;
-	}
-	.textoDireitaTopo {
-		width: 55%;
-		height: 100%;
-		float: right;
-		display: block;
-	}
-	.textoDireitaTopo .areaMissao .textoMissao {
-		text-align: right !important;
-		float: right !important;
-		font-size: 14px !important;
-		font-family: Book Antiqua !important;
-		margin-right: 3%;
-		margin-top: 2%;
-	}
-	.textoDireitaTopo .areaMissao .texto {
-		width: 90%;
-		text-align: right !important;
-		float: right !important;
-		font-size: 10px !important;
-		font-family: Book Antiqua !important;
-		margin-right: 3%;
-		margin-top: 0.2%;
-	}
-	.textoDireitaTopo .areaContato .centraldeatend {
-		float: right !important;
-		margin-right: 3%;
-		height: 40%;
-		width: 80%;
-		margin-top: 30%;
-	}
 }

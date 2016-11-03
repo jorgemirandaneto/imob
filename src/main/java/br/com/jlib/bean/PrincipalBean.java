@@ -11,24 +11,19 @@ import javax.faces.bean.ViewScoped;
 import org.omnifaces.util.Messages;
 
 import br.com.jlib.dao.CidadeDAO;
+import br.com.jlib.dao.TipoDAO;
 import br.com.jlib.domain.Cidade;
+import br.com.jlib.domain.Tipo;
 
 @SuppressWarnings("serial")
 @ManagedBean(name = "principalBean")
 @ViewScoped
 public class PrincipalBean implements Serializable {
 
-	private List<String> images;
 	private List<Cidade> cidades;
+	private List<Tipo> tipos;
 	private Cidade cidade;
-
-	public List<String> getImages() {
-		return images;
-	}
-
-	public void setImages(List<String> images) {
-		this.images = images;
-	}
+	private Tipo tipo;
 
 	public List<Cidade> getCidades() {
 		return cidades;
@@ -46,6 +41,22 @@ public class PrincipalBean implements Serializable {
 		this.cidade = cidade;
 	}
 	
+	public List<Tipo> getTipos() {
+		return tipos;
+	}
+
+	public void setTipos(List<Tipo> tipos) {
+		this.tipos = tipos;
+	}
+	
+	public Tipo getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(Tipo tipo) {
+		this.tipo = tipo;
+	}
+
 	public void novo(){
 		cidade = new Cidade();
 	}
@@ -53,9 +64,8 @@ public class PrincipalBean implements Serializable {
 	@PostConstruct
 	public void init() {
 		try {
-			CidadeDAO cidadeDAO = new CidadeDAO();
-			cidades = cidadeDAO.listar();
-			telaMovel();
+			listarCidades();
+			listarTipo();
 		} catch (Exception erro) {
 			Messages.addGlobalInfo("Erro ao tentar listar as cidades entre em contado com suporte.");
 			erro.printStackTrace();
@@ -63,11 +73,26 @@ public class PrincipalBean implements Serializable {
 	}
 	
 	
-	//metodo para passar as imagens
-	public void telaMovel(){
-		images = new ArrayList<String>();
-		for (int i = 1; i <= 2; i++) {
-			images.add("imagem" + i + ".jpg");
+	
+	
+	public void listarCidades(){
+		try {
+			CidadeDAO cidadeDAO = new CidadeDAO();
+			cidades = cidadeDAO.listar();
+			
+		} catch (Exception erro) {
+			Messages.addGlobalInfo("Erro ao tentar listar as cidades entre em contado com suporte.");
+			erro.printStackTrace();
+		}
+	}
+	
+	public void listarTipo(){
+		try {
+			TipoDAO tipoDAO = new TipoDAO();
+			tipos = tipoDAO.listar();
+		} catch (Exception erro) {
+			Messages.addGlobalInfo("Erro ao tentar listar as cidades entre em contado com suporte.");
+			erro.printStackTrace();
 		}
 	}
 

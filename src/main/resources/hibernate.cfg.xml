@@ -39,6 +39,7 @@
 		<mapping class="br.com.jlib.domain.Usuario" />
 		<mapping class="br.com.jlib.domain.Cidade" />
 		<mapping class="br.com.jlib.domain.Estado" />
+		<mapping class="br.com.jlib.domain.Tipo" />
 	</session-factory>
 
 </hibernate-configuration>
