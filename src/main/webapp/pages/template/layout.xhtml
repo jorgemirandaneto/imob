@@ -14,8 +14,9 @@
 	<p:growl id="mensagem" />
 	<h:form id="formHeader">
 		<div align="right" id="header">
-			<p:commandLink style="font-size:12px; color:#fff" value="Login |"></p:commandLink>
-			<p:commandLink style="font-size:12px; color:#fff"
+			<p:commandLink styleClass="textoCabecalho"
+				oncomplete="PF('dilogoLogar').show();" value="Login |"></p:commandLink>
+			<p:commandLink styleClass="textoCabecalho"
 				oncomplete="PF('dilogoCadastrar').show();" value=" Cadastre-se"></p:commandLink>
 		</div>
 	</h:form>

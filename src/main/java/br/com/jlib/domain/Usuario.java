@@ -14,6 +14,9 @@ public class Usuario extends GenericDomain{
 	
 	@Column
 	private String usuario;
+	
+	@Column
+	private String email;
 
 	
 	
@@ -40,6 +43,15 @@ public class Usuario extends GenericDomain{
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
 	
 
 

@@ -1,5 +1,7 @@
 package br.com.jlib.dao;
 
-public class UsuarioDAO {
+import br.com.jlib.domain.Usuario;
+
+public class UsuarioDAO extends GenericDAO<Usuario> {
 
 }
