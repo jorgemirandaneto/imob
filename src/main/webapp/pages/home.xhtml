@@ -96,13 +96,6 @@
 							<p:outputLabel styleClass="textoTitulo"
 								value="Cadastre-se no IMOB" />
 						</div>
-						<div class="alinDireitaTopo">
-							<p:commandButton value="Gravar" styleClass="botaoSalvar"
-								icon="ui-icon-circle-check" update=":mensagem :formDialogoCadastro" actionListener="principalBean.novoUsuario"/>
-							<p:commandButton value="Fechar" styleClass="botaoFechar"
-								icon="ui-icon-circle-close"
-								oncomplete="PF('dilogoCadastrar').hide();" />
-						</div>
 					</f:facet>
 					<p:tabView>
 						<p:tab title="Empresa">
@@ -110,17 +103,31 @@
 								columnClasses="ui-grid-col-4,ui-grid-col-7"
 								id="painelCadastroEmpresa" columns="2">
 								<p:outputLabel for="nome" value="Nome da Empresa: " />
-								<p:inputText id="nome" placeholder="Nome da Empresa" />
-								<p:outputLabel for="cnpj" value="Nome da Empresa: " />
+								<p:inputText id="nome" placeholder="Nome da Empresa"
+									value="#{principalBean.empresa.nome}" />
+								<p:outputLabel for="cnpj" value="CNPJ da Empresa: " />
 								<p:inputMask id="cnpj" mask="99.999.999/9999-99"
-									placeholder="99.999.999/9999-99" size="18" />
+									placeholder="99.999.999/9999-99" size="18"
+									value="#{principalBean.empresa.cnpj}" />
 								<p:outputLabel for="endereco" value="Endereço da Empresa: " />
-								<p:inputText id="endereco" placeholder="Endereço da Empresa" />
+								<p:inputText id="endereco" placeholder="Endereço da Empresa"
+									value="#{principalBean.empresa.endereco}" />
 								<p:outputLabel for="usuario" value="Usuário: " />
-								<p:inputText id="usuario" placeholder="Usuário" />
+								<p:inputText id="usuario" placeholder="Usuário"
+									value="#{principalBean.empresa.usuario}" />
 								<p:outputLabel for="senha" value="Senha: " />
-								<p:password id="senha" size="8" placeholder="Senha" />
+								<p:password id="senha" size="8" placeholder="Senha"
+									value="#{principalBean.empresa.senha}" />
 							</p:panelGrid>
+							<div class="alinDireitaTopo">
+								<p:commandButton value="Fechar" styleClass="botaoFechar"
+									icon="ui-icon-circle-close"
+									oncomplete="PF('dilogoCadastrar').hide();" />
+								<p:commandButton value="Gravar" styleClass="botaoSalvar"
+									icon="ui-icon-circle-check"
+									update=":mensagem :formDialogoCadastro"
+									actionListener="#{principalBean.novaEmpresa}" />
+							</div>
 						</p:tab>
 						<p:tab title="Usuário">
 							<p:panelGrid layout="grid"
@@ -128,18 +135,35 @@
 								columnClasses="ui-grid-col-3,ui-grid-col-10"
 								id="painelCadastroUser" columns="2">
 								<p:outputLabel for="usuarioUser" value="Usuário: " />
-								<p:inputText id="usuarioUser" value="principalBean." placeholder="Usuário" />
+								<p:inputText id="usuarioUser"
+									value="#{principalBean.usuario.usuario}" placeholder="Usuário" />
 								<p:outputLabel for="senhaUser" value="Senha: " />
-								<p:password id="senhaUser" size="8" placeholder="Senha" />
+								<p:password id="senhaUser" size="8" placeholder="Senha"
+									value="#{principalBean.usuario.senha}" />
 								<p:outputLabel for="nomeUser" value="Nome Completo: " />
-								<p:inputText id="nomeUser" size="8" placeholder="Nome Completo" />
+								<p:inputText id="nomeUser" size="8" placeholder="Nome Completo"
+									value="#{principalBean.usuario.nome}" />
 								<p:outputLabel for="email" value="Email: " />
-								<p:inputText id="email" size="8" placeholder="Email" />
+								<p:inputText id="email" size="8" placeholder="Email"
+									value="#{principalBean.usuario.email}" />
 							</p:panelGrid>
+							<div class="alinDireitaTopo">
+								<p:commandButton value="Fechar" styleClass="botaoFechar"
+									icon="ui-icon-circle-close"
+									oncomplete="PF('dilogoCadastrar').hide();" />
+								<p:commandButton value="Gravar" styleClass="botaoSalvar"
+									icon="ui-icon-circle-check"
+									update=":mensagem :formDialogoCadastro"
+									actionListener="#{principalBean.novoUsuario()}" />
+							</div>
+
 						</p:tab>
 					</p:tabView>
 				</p:dialog>
 			</h:form>
+
+
+			<!-- Dialogo de logar o usuario -->
 			<h:form id="formDialogoLogar">
 				<p:dialog responsive="true" widgetVar="dilogoLogar"
 					styleClass="tamanhoDialogo" draggable="false" resizable="false"
@@ -188,8 +212,8 @@
 			<h:form id="formOfertaDestaque">
 				<p:fieldset legend="Ofertas em destaque" style="margin-bottom:20px">
 					<h:panelGrid layout="grid" styleClass="ui-fluid ui-noborder"
-					columnClasses="ui-grid-col-4,ui-grid-col-4,ui-grid-col-4"
-					id="painelCadastroAluno" columns="3">
+						columnClasses="ui-grid-col-4,ui-grid-col-4,ui-grid-col-4"
+						id="painelCadastroAluno" columns="3">
 						<p:graphicImage value="" library="imagens" alt="teste"
 							name="destaque/01Casa01.jpg" id="destaque1" styleClass="destaque" />
 						<p:graphicImage value="" library="imagens"

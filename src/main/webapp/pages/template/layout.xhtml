@@ -15,8 +15,10 @@
 	<h:form id="formHeader">
 		<div align="right" id="header">
 			<p:commandLink styleClass="textoCabecalho"
+				actionListener="#{principalBean.novo}" update=":formDialogoCadastro"
 				oncomplete="PF('dilogoLogar').show();" value="Login |"></p:commandLink>
 			<p:commandLink styleClass="textoCabecalho"
+				actionListener="#{principalBean.novo}" update=":formDialogoCadastro"
 				oncomplete="PF('dilogoCadastrar').show();" value=" Cadastre-se"></p:commandLink>
 		</div>
 	</h:form>
