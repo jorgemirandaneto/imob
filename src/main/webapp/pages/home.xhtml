@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>IMOB - Página Principal</title>
+</h:head>
+<h:body>
+	<ui:composition template="template/layout.xhtml">
+		<ui:define name="corpo">
+			<div id="baseImagem">
+				<p:graphicImage library="imagens" name="background.jpg"
+					id="background" styleClass="background" />
+			</div>
+			<div class="logoFlutuante">
+				<p:graphicImage library="imagens" name="logo.png" id="logo"
+					styleClass="logo" />
+			</div>
+			<div class="textoFlutuante">
+				<p:outputLabel styleClass="textoVis"
+					value="IMOB, Garantindo a melhor qualidade de vida pra você!" />
+			</div>
+			<h:form id="formBaseProcura">
+				<div id="baseProcura">
+					<div align="center" class="topo1">
+						<p:outputLabel styleClass="texto"
+							value="Deseja Comprar ou aluguar? " />
+					</div>
+					<div align="center" class="topo2">
+						<p:commandButton styleClass="botaoAlugar" value="Alugar" />
+						<p:commandButton styleClass="botaoComprar" value="Comprar" />
+					</div>
+					<div align="left" class="baixo1">
+						<div class="textoPos1">
+							<p:outputLabel styleClass="texto" value="Escolha o Cidade: " />
+						</div>
+						<div class="select1">
+							<p:selectOneMenu id="cidade" value="#{principalBean.cidade}"
+								styleClass="listpesquisa"
+								converter="omnifaces.SelectItemsConverter">
+								<p:ajax listener="#{principalBean.listarBairro}"
+									update="formBaseProcura:bairro" />
+								<f:selectItem itemValue="" itemLabel="Selecione uma cidade" />
+								<f:selectItems value="#{principalBean.cidades}" var="cidade"
+									itemValue="#{cidade}" itemLabel="#{cidade.nome}" />
+							</p:selectOneMenu>
+						</div>
+
+					</div>
+					<div align="left" class="baixo2">
+						<div class="textoPos2">
+							<p:outputLabel styleClass="texto" value="Escolha o Tipo: " />
+						</div>
+						<div class="select2">
+							<p:selectOneMenu id="imovel" value="#{principalBean.tipo}"
+								styleClass="listpesquisa"
+								converter="omnifaces.SelectItemsConverter">
+								<f:selectItem itemValue="" itemLabel="Selecione um tipo" />
+								<f:selectItems value="#{principalBean.tipos}" var="tipo"
+									itemValue="#{tipo}" itemLabel="#{tipo.tipo}" />
+							</p:selectOneMenu>
+						</div>
+
+					</div>
+					<div align="left" class="baixo3">
+						<div class="textoPos3">
+							<p:outputLabel styleClass="texto" value="Escolha o Bairro: " />
+						</div>
+						<div id="divBairro" class="select3">
+							<p:selectOneMenu id="bairro" filter="true"
+								styleClass="listpesquisa" value="#{principalBean.bairro}"
+								converter="omnifaces.SelectItemsConverter">
+								<f:selectItem itemValue="" itemLabel="Selecione o bairro" />
+								<f:selectItems value="#{principalBean.bairros}" var="bairro"
+									itemValue="#{bairro}" itemLabel="#{bairro.nome}" />
+							</p:selectOneMenu>
+						</div>
+
+					</div>
+					<div align="center" class="baixo4">
+						<p:commandButton styleClass="botaoPesquisar" value="Pesquisar" />
+					</div>
+				</div>
+			</h:form>
+
+			<h:form id="formDialogoCadastro">
+				<p:dialog responsive="true" widgetVar="dilogoCadastrar"
+					styleClass="tamanhoDialogo" draggable="false" resizable="false"
+					modal="true" closable="false">
+					<f:facet name="header">
+						<div class="alinEsquerdaTopo">
+							<p:outputLabel styleClass="textoTitulo"
+								value="Cadastre-se no IMOB" />
+						</div>
+					</f:facet>
+					<p:tabView>
+						<p:tab title="Empresa">
+							<p:panelGrid layout="grid" styleClass="ui-fluid ui-noborder"
+								columnClasses="ui-grid-col-4,ui-grid-col-7"
+								id="painelCadastroEmpresa" columns="2">
+								<p:outputLabel for="nome" value="Nome da Empresa: " />
+								<p:inputText id="nome" placeholder="Nome da Empresa"
+									value="#{principalBean.empresa.nome}" />
+								<p:outputLabel for="cnpj" value="CNPJ da Empresa: " />
+								<p:inputMask id="cnpj" mask="99.999.999/9999-99"
+									placeholder="99.999.999/9999-99" size="18"
+									value="#{principalBean.empresa.cnpj}" />
+								<p:outputLabel for="endereco" value="Endereço da Empresa: " />
+								<p:inputText id="endereco" placeholder="Endereço da Empresa"
+									value="#{principalBean.empresa.endereco}" />
+								<p:outputLabel for="usuario" value="Usuário: " />
+								<p:inputText id="usuario" placeholder="Usuário"
+									value="#{principalBean.empresa.usuario}" />
+								<p:outputLabel for="senha" value="Senha: " />
+								<p:password id="senha" size="8" placeholder="Senha"
+									value="#{principalBean.empresa.senha}" />
+							</p:panelGrid>
+							<div class="alinDireitaTopo">
+								<p:commandButton value="Fechar" styleClass="botaoFechar"
+									icon="ui-icon-circle-close"
+									oncomplete="PF('dilogoCadastrar').hide();" />
+								<p:commandButton value="Gravar" styleClass="botaoSalvar"
+									icon="ui-icon-circle-check"
+									update=":mensagem :formDialogoCadastro"
+									actionListener="#{principalBean.novaEmpresa}" />
+							</div>
+						</p:tab>
+						<p:tab title="Usuário">
+							<p:panelGrid layout="grid"
+								styleClass="ui-fluid ui-noborder scrollVertical"
+								columnClasses="ui-grid-col-3,ui-grid-col-10"
+								id="painelCadastroUser" columns="2">
+								<p:outputLabel for="usuarioUser" value="Usuário: " />
+								<p:inputText id="usuarioUser"
+									value="#{principalBean.usuario.usuario}" placeholder="Usuário" />
+								<p:outputLabel for="senhaUser" value="Senha: " />
+								<p:password id="senhaUser" size="8" placeholder="Senha"
+									value="#{principalBean.usuario.senha}" />
+								<p:outputLabel for="nomeUser" value="Nome Completo: " />
+								<p:inputText id="nomeUser" size="8" placeholder="Nome Completo"
+									value="#{principalBean.usuario.nome}" />
+								<p:outputLabel for="email" value="Email: " />
+								<p:inputText id="email" size="8" placeholder="Email"
+									value="#{principalBean.usuario.email}" />
+							</p:panelGrid>
+							<div class="alinDireitaTopo">
+								<p:commandButton value="Fechar" styleClass="botaoFechar"
+									icon="ui-icon-circle-close"
+									oncomplete="PF('dilogoCadastrar').hide();" />
+								<p:commandButton value="Gravar" styleClass="botaoSalvar"
+									icon="ui-icon-circle-check"
+									update=":mensagem :formDialogoCadastro"
+									actionListener="#{principalBean.novoUsuario()}" />
+							</div>
+
+						</p:tab>
+					</p:tabView>
+				</p:dialog>
+			</h:form>
+
+
+			<!-- Dialogo de logar o usuario -->
+			<h:form id="formDialogoLogar">
+				<p:dialog responsive="true" widgetVar="dilogoLogar"
+					styleClass="tamanhoDialogo" draggable="false" resizable="false"
+					modal="true" closable="false">
+					<f:facet name="header">
+						<div class="alinEsquerdaTopo">
+							<p:outputLabel styleClass="textoTitulo"
+								value="Cadastre-se no IMOB" />
+						</div>
+						<div class="alinDireitaTopo">
+							<p:commandButton value="Login" styleClass="botaoSalvar"
+								icon="ui-icon-circle-check" update="" />
+							<p:commandButton value="Fechar" styleClass="botaoFechar"
+								icon="ui-icon-circle-close"
+								oncomplete="PF('dilogoLogar').hide();" />
+						</div>
+					</f:facet>
+					<p:tabView>
+						<p:tab title="Empresa">
+							<p:panelGrid layout="grid" styleClass="ui-fluid ui-noborder"
+								columnClasses="ui-grid-col-4,ui-grid-col-7"
+								id="painelCadastroEmpresa" columns="2">
+								<p:outputLabel for="usuario" value="Usuário: " />
+								<p:inputText id="usuario" placeholder="Usuário" />
+								<p:outputLabel for="senha" value="Senha: " />
+								<p:password id="senha" size="8" placeholder="Senha" />
+							</p:panelGrid>
+						</p:tab>
+						<p:tab title="Usuário">
+							<p:panelGrid layout="grid"
+								styleClass="ui-fluid ui-noborder scrollVertical"
+								columnClasses="ui-grid-col-3,ui-grid-col-10"
+								id="painelCadastroUser" columns="2">
+								<p:outputLabel for="usuarioUser" value="Usuário: " />
+								<p:inputText id="usuarioUser" placeholder="Usuário" />
+								<p:outputLabel for="senhaUser" value="Senha: " />
+								<p:password id="senhaUser" size="8" placeholder="Senha" />
+							</p:panelGrid>
+						</p:tab>
+					</p:tabView>
+				</p:dialog>
+			</h:form>
+
+			<br />
+
+			<h:form id="formOfertaDestaque">
+				<p:fieldset legend="Ofertas em destaque" style="margin-bottom:20px">
+					<h:panelGrid layout="grid" styleClass="ui-fluid ui-noborder"
+						columnClasses="ui-grid-col-4,ui-grid-col-4,ui-grid-col-4"
+						id="painelCadastroAluno" columns="3">
+						<p:graphicImage value="" library="imagens" alt="teste"
+							name="destaque/01Casa01.jpg" id="destaque1" styleClass="destaque" />
+						<p:graphicImage value="" library="imagens"
+							name="destaque/01Casa02.png" id="destaque2" styleClass="destaque" />
+						<p:graphicImage value="" library="imagens"
+							name="destaque/01Casa03.png" id="destaque3" styleClass="destaque" />
+
+					</h:panelGrid>
+				</p:fieldset>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

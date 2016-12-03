@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>IMOB - Página Principal</title>
+</h:head>
+<h:body>
+	<ui:composition template="template/layout.xhtml">
+		<ui:define name="corpo">
+			<h:form id="formPricipal">
+				<p:tabView dir="rtl" styleClass="pesquisa">
+					<p:tab title="Busca por imóvel">
+						<div style="margin-top: 20px !important;">
+							<p:outputLabel styleClass="texto"
+								value="?Procura imóvel para alugar " />
+						</div>
+						<p:panelGrid columns="3"
+							columnClasses="ui-grid-col-4,ui-grid-col-4,ui-grid-col-4"
+							layout="grid" styleClass="ui-panelgrid-blank painelPesquisa">
+							<p:selectOneMenu id="cidade" filter="true" value="#{principalBean.cidade}"
+								styleClass="listpesquisa"
+								converter="omnifaces.SelectItemsConverter">
+								<f:selectItem itemValue="" itemLabel="Selecione uma cidade" />
+								<f:selectItems value="#{principalBean.cidades}" var="cidade" itemValue="#{cidade}"
+									itemLabel="#{cidade.nome}" />
+							</p:selectOneMenu>
+							<p:selectOneMenu id="imovel" filter="true" value=""
+								styleClass="listpesquisa"
+								converter="omnifaces.SelectItemsConverter">
+								<f:selectItem itemValue="" itemLabel="Selecione um imovel" />
+								<f:selectItems value="" var="imovel" itemValue="#{imovel}"
+									itemLabel="#{estado.sigla}" />
+							</p:selectOneMenu>
+							<p:selectOneMenu id="bairro" filter="true" value=""
+								styleClass="listpesquisa"
+								converter="omnifaces.SelectItemsConverter">
+								<f:selectItem itemValue="" itemLabel="Selecione o bairro" />
+								<f:selectItems value="" var="bairro" itemValue="#{bairro}"
+									itemLabel="#{estado.sigla}" />
+							</p:selectOneMenu>
+						</p:panelGrid>
+					</p:tab>
+					<p:tab title="Busca por código">
+						<h:panelGrid columns="2" cellpadding="10">
+
+							<h:outputText value="página 2" />
+						</h:panelGrid>
+					</p:tab>
+				</p:tabView>
+
+				<div align="center" style="margin-top: 10px">
+					<p:imageSwitch effect="fade" id="fadeEffect" styleClass="telaMovel">
+						<ui:repeat value="#{principalBean.images}" var="imagem"
+							id="fadeEffectImages">
+							<p:graphicImage name="imagens/telamovel/#{imagem}" id="imagem"
+								styleClass="imagensMovel" />
+						</ui:repeat>
+					</p:imageSwitch>
+				</div>
+			</h:form>
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

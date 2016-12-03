@@ -7,13 +7,13 @@ import javax.persistence.ManyToOne;
 
 @SuppressWarnings("serial")
 @Entity
-public class Cidade extends GenericDomain {
+public class Bairro extends GenericDomain {
 	@Column(length = 100)
 	private String nome;
 	
 	@JoinColumn
 	@ManyToOne
-	private Estado estado;
+	private Cidade cidade;
 
 	public String getNome() {
 		return nome;
@@ -23,14 +23,18 @@ public class Cidade extends GenericDomain {
 		this.nome = nome;
 	}
 
-	public Estado getEstado() {
-		return estado;
+	public Cidade getCidade() {
+		return cidade;
 	}
 
-	public void setEstado(Estado estado) {
-		this.estado = estado;
+	public void setCidade(Cidade cidade) {
+		this.cidade = cidade;
 	}
+
 	
+	
+	
+	// teste
 	
 	
 }

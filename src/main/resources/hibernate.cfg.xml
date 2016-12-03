@@ -11,7 +11,7 @@
 		<property name="connection.driver_class">org.postgresql.Driver</property>
 		<property name="connection.url">jdbc:postgresql://localhost:5432/imob</property>
 		<property name="connection.username">postgres</property>
-		<property name="connection.password">1q2w3e4r</property>
+		<property name="connection.password">123456</property>
 
 		<!-- Pool de conexão -->
 		<property name="connection.pool_size">1</property>
@@ -39,6 +39,8 @@
 		<mapping class="br.com.jlib.domain.Usuario" />
 		<mapping class="br.com.jlib.domain.Cidade" />
 		<mapping class="br.com.jlib.domain.Estado" />
+		<mapping class="br.com.jlib.domain.Tipo" />
+		<mapping class="br.com.jlib.domain.Bairro" />
 	</session-factory>
 
 </hibernate-configuration>
