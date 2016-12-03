@@ -99,26 +99,10 @@ public class PrincipalBean implements Serializable {
 	public void novoUsuario() {
 		try {
 			UsuarioDAO usuarioDAO = new UsuarioDAO();
-			if (usuario.getNome() != null && !usuario.getNome().equals("")) {
-				if (usuario.getEmail() != null && !usuario.getEmail().equals("")) {
-					if (usuario.getUsuario() != null && !usuario.getUsuario().equals("")) {
-						if (usuario.getSenha() != null && !usuario.getSenha().equals("")) {
-							iniciaEmpresa();
-							usuarioDAO.salvar(usuario);
-							novo();
-							Messages.addGlobalInfo("Usuário cadastrado com sucesso!");
-						} else {
-							Messages.addGlobalWarn("Campo senha é obrigatorio!");
-						}
-					} else {
-						Messages.addGlobalWarn("Campo usuario é obrigatorio!");
-					}
-				} else {
-					Messages.addGlobalWarn("Campo email é obrigatorio!");
-				}
-			} else {
-				Messages.addGlobalWarn("Campo nome completo é obrigatorio!");
-			}
+			iniciaEmpresa();
+			usuarioDAO.salvar(usuario);
+			novo();
+			Messages.addGlobalInfo("Usuário cadastrado com sucesso!");
 			RequestContext context = RequestContext.getCurrentInstance();
 			context.execute("PF('dilogoCadastrar').show();");
 		} catch (Exception erro) {
@@ -130,31 +114,10 @@ public class PrincipalBean implements Serializable {
 	public void novaEmpresa() {
 		try {
 			EmpresaDAO empresaDAO = new EmpresaDAO();
-			if (empresa.getNome() != null && !empresa.getNome().equals("")) {
-				if (empresa.getCnpj() != null && !empresa.getCnpj().equals("")) {
-					if (empresa.getEndereco() != null && !empresa.getEndereco().equals("")) {
-						if (empresa.getUsuario() != null && !empresa.getUsuario().equals("")) {
-							if (empresa.getSenha() != null && !empresa.getSenha().equals("")) {
-								iniciaUsuario();
-								empresaDAO.salvar(empresa);
-								novo();
-								Messages.addGlobalInfo("Empresa cadastrada com sucesso!");
-							} else {
-								Messages.addGlobalWarn("Campo senha é obrigatorio!");
-							}
-						} else {
-							Messages.addGlobalWarn("Campo usuario é obrigatorio!");
-						}
-					} else {
-						Messages.addGlobalWarn("Campo endereço é obrigatorio!");
-					}
-				} else {
-					Messages.addGlobalWarn("Campo cnpj é obrigatorio!");
-				}
-			} else {
-				Messages.addGlobalWarn("Campo nome é obrigatorio!");
-			}
-			
+			iniciaUsuario();
+			empresaDAO.salvar(empresa);
+			novo();
+			Messages.addGlobalInfo("Empresa cadastrada com sucesso!");
 			RequestContext context = RequestContext.getCurrentInstance();
 			context.execute("PF('dilogoCadastrar').show();");
 		} catch (Exception erro) {
@@ -162,7 +125,6 @@ public class PrincipalBean implements Serializable {
 			erro.printStackTrace();
 		}
 	}
-
 
 	// Get e set
 	public List<Cidade> getCidades() {
