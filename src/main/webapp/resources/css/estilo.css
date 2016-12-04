@@ -199,7 +199,6 @@ body {
 }
 
 .alinDireitaTopo {
-	margin-top: 30px;
 	float: right !important;
 	position: relative !important;
 	margin-right: 0px !important;
@@ -294,10 +293,9 @@ body {
 
 /*painel destaque inicio*/
 .destaque{
-	width: 70%;
+	width: 30%;
 	height: 250px;
-	margin-left: 30%;
-	margin-right: 30%;
+	
 }
 
 

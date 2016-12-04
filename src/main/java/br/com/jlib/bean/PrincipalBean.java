@@ -34,30 +34,18 @@ public class PrincipalBean implements Serializable {
 	private List<Bairro> bairros;
 	private Bairro bairro;
 	private boolean bairroOcultar;
-	private Usuario usuario;
-	private Empresa empresa;
 
 	public void novo() {
 		cidade = new Cidade();
-		iniciaUsuario();
-		iniciaEmpresa();
 	}
 
-	public void iniciaEmpresa() {
-		empresa = new Empresa();
-	}
-
-	public void iniciaUsuario() {
-		usuario = new Usuario();
-	}
+		
 
 	@PostConstruct
 	public void init() {
 		try {
 			listarCidades();
 			listarTipo();
-			iniciaUsuario();
-			iniciaEmpresa();
 		} catch (Exception erro) {
 			Messages.addGlobalInfo("Erro ao tentar listar as cidades entre em contado com suporte.");
 			erro.printStackTrace();
@@ -96,35 +84,7 @@ public class PrincipalBean implements Serializable {
 		}
 	}
 
-	public void novoUsuario() {
-		try {
-			UsuarioDAO usuarioDAO = new UsuarioDAO();
-			iniciaEmpresa();
-			usuarioDAO.salvar(usuario);
-			novo();
-			Messages.addGlobalInfo("Usuário cadastrado com sucesso!");
-			RequestContext context = RequestContext.getCurrentInstance();
-			context.execute("PF('dilogoCadastrar').show();");
-		} catch (Exception erro) {
-			Messages.addGlobalInfo("Erro ao tentar gravar usuário entre em contado com suporte.");
-			erro.printStackTrace();
-		}
-	}
-
-	public void novaEmpresa() {
-		try {
-			EmpresaDAO empresaDAO = new EmpresaDAO();
-			iniciaUsuario();
-			empresaDAO.salvar(empresa);
-			novo();
-			Messages.addGlobalInfo("Empresa cadastrada com sucesso!");
-			RequestContext context = RequestContext.getCurrentInstance();
-			context.execute("PF('dilogoCadastrar').show();");
-		} catch (Exception erro) {
-			Messages.addGlobalInfo("Erro ao tentar gravar empresa entre em contado com suporte.");
-			erro.printStackTrace();
-		}
-	}
+	
 
 	// Get e set
 	public List<Cidade> getCidades() {
@@ -183,20 +143,6 @@ public class PrincipalBean implements Serializable {
 		this.bairroOcultar = bairroOcultar;
 	}
 
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
-
-	public Empresa getEmpresa() {
-		return empresa;
-	}
-
-	public void setEmpresa(Empresa empresa) {
-		this.empresa = empresa;
-	}
+	
 
 }

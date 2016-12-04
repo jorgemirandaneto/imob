@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, user-scalable=no" />
+
+	<title>IMOB - Tela de cadastro</title>
+</h:head>
+<h:body>
+	<style>
+body {
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+.titulo-panel {
+	
+}
+
+.logoFlutuante {
+	width: 10%;
+	height: 27%;
+	z-index: 3;
+}
+
+.logoFlutuante .logo {
+	width: 100% !important;
+	height: 100% !important;
+	display: block;
+}
+
+.botaoEscolha {
+	margin-left: 24%;
+	margin-bottom: 5%;
+}
+
+.botaoGravar {
+	width: 200px !important;
+}
+
+.fonte {
+	font-size: 16px;
+	margin-bottom: 2%;
+}
+
+.botaoSelecionado:FOCUS {
+	background: #ff5a00 !important;
+	color: #fff !important;
+}
+</style>
+	<p:growl id="mensagem" />
+	<p:panel>
+		<f:facet name="header">
+			<div class="alinEsquerdaTopo">
+				<p:outputLabel styleClass="textoTitulo" value="Cadastre-se no IMOB" />
+			</div>
+		</f:facet>
+		<div align="right">
+			<div class="logoFlutuante">
+				<p:graphicImage library="imagens" name="logocad.png" id="logo"
+					styleClass="logo" />
+			</div>
+		</div>
+		<br />
+		<h:form id="fromVerificacao">
+			<p:panelGrid layout="grid"
+				styleClass="botaoEscolha ui-fluid ui-noborder"
+				columnClasses="ui-grid-col-4,ui-grid-col-4" columns="2">
+				<p:commandButton ajax="false" value="Pessoa Jurídica"
+					actionListener="#{cadastroBean.painelPesEmpresa}"
+					update=":mensagem :formDialogoCadastro:panelCadastroEmpresa"
+					styleClass="botaoSelecionado" />
+				<p:commandButton ajax="false" value="Pessoa Física"
+					styleClass="botaoSelecionado"
+					update=":mensagem :formDialogoCadastro:panelPessoaFisica"
+					actionListener="#{cadastroBean.painelPesFisica}" />
+			</p:panelGrid>
+		</h:form>
+		<h:form id="formDialogoCadastro">
+			<p:panelGrid rendered="#{cadastroBean.botaoPessoaJuridica}"
+				layout="grid" styleClass="ui-fluid ui-noborder"
+				columnClasses="ui-grid-col-3,ui-grid-col-7"
+				id="panelCadastroEmpresa" columns="2">
+				<p:outputLabel for="nome" value="Nome da Empresa: "
+					styleClass="fonte" />
+				<p:inputText id="nome" placeholder="Nome da Empresa"
+					value="#{cadastroBean.empresa.nome}" required="true"
+					requiredMessage="Nome da empresa é obrigatório." styleClass="fonte" />
+				<p:outputLabel for="cnpj" value="CNPJ da Empresa: "
+					styleClass="fonte" />
+				<p:inputMask id="cnpj" mask="99.999.999/9999-99"
+					placeholder="99.999.999/9999-99" size="18" required="true"
+					requiredMessage="CNPJ da empresa é obrigatório."
+					value="#{cadastroBean.empresa.cnpj}" styleClass="fonte" />
+				<p:outputLabel for="endereco" value="Endereço da Empresa: "
+					styleClass="fonte" />
+				<p:inputText id="endereco" placeholder="Endereço da Empresa"
+					value="#{cadastroBean.empresa.endereco}" required="true"
+					requiredMessage="Endereço da empresa é obrigatório"
+					styleClass="fonte" />
+				<p:outputLabel for="usuario" value="Usuário: " styleClass="fonte" />
+				<p:inputText id="usuario" placeholder="Usuário" required="true"
+					requiredMessage="Usuário da empresa é obrigatório"
+					value="#{cadastroBean.empresa.usuario}" styleClass="fonte" />
+				<p:outputLabel for="senha" value="Senha: " styleClass="fonte" />
+				<p:password id="senha" size="8" placeholder="Senha" required="true"
+					requiredMessage="Senha é obrigatória." styleClass="fonte"
+					value="#{cadastroBean.empresa.senha}" />
+			</p:panelGrid>
+			<p:panelGrid id="panelPessoaFisica" layout="grid"
+				rendered="#{cadastroBean.botaoPessoaFisica}"
+				styleClass="ui-fluid ui-noborder scrollVertical"
+				columnClasses="ui-grid-col-3,ui-grid-col-7" columns="2">
+				<p:outputLabel for="nomeUser" value="Nome Completo: "
+					styleClass="fonte" />
+				<p:inputText id="nomeUser" size="8" placeholder="Nome Completo"
+					required="true" styleClass="fonte"
+					requiredMessage="Campo nome completo é obrigatório!"
+					value="#{cadastroBean.usuario.nome}" />
+				<p:outputLabel for="email" value="Email: " styleClass="fonte" />
+				<p:inputText id="email" size="8" placeholder="Email" required="true"
+					requiredMessage="Campo email é obrigatório" styleClass="fonte"
+					value="#{cadastroBean.usuario.email}" />
+				<p:outputLabel for="usuarioUser" value="Usuário: "
+					styleClass="fonte" />
+				<p:inputText id="usuarioUser" required="true" styleClass="fonte"
+					requiredMessage="Campo usuário é obrigatório!"
+					value="#{cadastroBean.usuario.usuario}" placeholder="Usuário" />
+				<p:outputLabel for="senhaUser" value="Senha:" styleClass="fonte" />
+				<p:password id="senhaUser" size="8" placeholder="Senha"
+					styleClass="fonte" required="true"
+					requiredMessage="Campo senha é obrigatório!"
+					value="#{cadastroBean.usuario.senha}" />
+			</p:panelGrid>
+			<div align="center">
+				<p:commandButton value="Gravar" styleClass="botaoGravar"
+					icon="ui-icon-circle-check" update=":mensagem :formDialogoCadastro"
+					oncomplete="PF('dilogoCadastrar').show();"
+					actionListener="#{cadastroBean.cadastro}" />
+			</div>
+		</h:form>
+	</p:panel>
+</h:body>
+</html>

@@ -87,94 +87,6 @@
 				</div>
 			</h:form>
 
-			<h:form id="formDialogoCadastro">
-				<p:dialog responsive="true" widgetVar="dilogoCadastrar"
-					styleClass="tamanhoDialogo" draggable="false" resizable="false"
-					modal="true" closable="false">
-					<f:facet name="header">
-						<div class="alinEsquerdaTopo">
-							<p:outputLabel styleClass="textoTitulo"
-								value="Cadastre-se no IMOB" />
-						</div>
-					</f:facet>
-					<p:tabView>
-						<p:tab title="Empresa">
-							<p:panelGrid layout="grid" styleClass="ui-fluid ui-noborder"
-								columnClasses="ui-grid-col-4,ui-grid-col-7"
-								id="painelCadastroEmpresa" columns="2">
-								<p:outputLabel for="nome" value="Nome da Empresa: " />
-								<p:inputText id="nome" placeholder="Nome da Empresa"
-									value="#{principalBean.empresa.nome}" required="true"
-									requiredMessage="Nome da empresa é obrigatório." />
-								<p:outputLabel for="cnpj" value="CNPJ da Empresa: " />
-								<p:inputMask id="cnpj" mask="99.999.999/9999-99"
-									placeholder="99.999.999/9999-99" size="18" required="true"
-									requiredMessage="CNPJ da empresa é obrigatório."
-									value="#{principalBean.empresa.cnpj}" />
-								<p:outputLabel for="endereco" value="Endereço da Empresa: " />
-								<p:inputText id="endereco" placeholder="Endereço da Empresa"
-									value="#{principalBean.empresa.endereco}" required="true"
-									requiredMessage="Endereço da empresa é obrigatório" />
-								<p:outputLabel for="usuario" value="Usuário: " />
-								<p:inputText id="usuario" placeholder="Usuário" required="true"
-									requiredMessage="Usuário da empresa é obrigatório"
-									value="#{principalBean.empresa.usuario}" />
-								<p:outputLabel for="senha" value="Senha: " />
-								<p:password id="senha" size="8" placeholder="Senha"
-									required="true" requiredMessage="Senha é obrigatória."
-									value="#{principalBean.empresa.senha}" />
-							</p:panelGrid>
-							<div class="alinDireitaTopo">
-								<p:commandButton value="Fechar" styleClass="botaoFechar"
-									icon="ui-icon-circle-close"
-									oncomplete="PF('dilogoCadastrar').hide();" />
-								<p:commandButton value="Gravar" styleClass="botaoSalvar"
-									icon="ui-icon-circle-check"
-									update=":mensagem :formDialogoCadastro"
-									oncomplete="PF('dilogoCadastrar').show();"
-									actionListener="#{principalBean.novaEmpresa}" />
-							</div>
-						</p:tab>
-						<p:tab title="Usuário">
-							<p:panelGrid layout="grid"
-								styleClass="ui-fluid ui-noborder scrollVertical"
-								columnClasses="ui-grid-col-3,ui-grid-col-10"
-								id="painelCadastroUser" columns="2">
-								<p:outputLabel for="nomeUser" value="Nome Completo: " />
-								<p:inputText id="nomeUser" size="8" placeholder="Nome Completo"
-									required="true"
-									requiredMessage="Campo nome completo é obrigatório!"
-									value="#{principalBean.usuario.nome}" />
-								<p:outputLabel for="email" value="Email: " />
-								<p:inputText id="email" size="8" placeholder="Email"
-									required="true" requiredMessage="Campo email é obrigatório"
-									value="#{principalBean.usuario.email}" />
-								<p:outputLabel for="usuarioUser" value="Usuário: " />
-								<p:inputText id="usuarioUser" required="true"
-									requiredMessage="Campo usuário é obrigatório!"
-									value="#{principalBean.usuario.usuario}" placeholder="Usuário" />
-								<p:outputLabel for="senhaUser" value="Senha: " />
-								<p:password id="senhaUser" size="8" placeholder="Senha"
-									required="true" requiredMessage="Campo senha é obrigatório!"
-									value="#{principalBean.usuario.senha}" />
-							</p:panelGrid>
-							<div class="alinDireitaTopo">
-								<p:commandButton value="Fechar" styleClass="botaoFechar"
-									icon="ui-icon-circle-close"
-									oncomplete="PF('dilogoCadastrar').hide();" />
-								<p:commandButton value="Gravar" styleClass="botaoSalvar"
-									icon="ui-icon-circle-check"
-									oncomplete="PF('dilogoCadastrar').show();"
-									update=":mensagem :formDialogoCadastro"
-									actionListener="#{principalBean.novoUsuario()}" />
-							</div>
-
-						</p:tab>
-					</p:tabView>
-				</p:dialog>
-			</h:form>
-
-
 			<!-- Dialogo de logar o usuario -->
 			<h:form id="formDialogoLogar">
 				<p:dialog responsive="true" widgetVar="dilogoLogar"
@@ -223,17 +135,20 @@
 
 			<h:form id="formOfertaDestaque">
 				<p:fieldset legend="Ofertas em destaque" style="margin-bottom:20px">
-					<h:panelGrid layout="grid" styleClass="ui-fluid ui-noborder"
-						columnClasses="ui-grid-col-4,ui-grid-col-4,ui-grid-col-4"
-						id="painelCadastroAluno" columns="3">
-						<p:graphicImage value="" library="imagens" alt="teste"
-							name="destaque/01Casa01.jpg" id="destaque1" styleClass="destaque" />
-						<p:graphicImage value="" library="imagens"
-							name="destaque/01Casa02.png" id="destaque2" styleClass="destaque" />
-						<p:graphicImage value="" library="imagens"
-							name="destaque/01Casa03.png" id="destaque3" styleClass="destaque" />
-
-					</h:panelGrid>
+					<p:panel style="width:100%; heigth: 200px;position: absolute;">
+						<p:panel styleClass="destaque">
+							<p:graphicImage value="" library="imagens"
+								name="destaque/01Casa01.jpg" id="destaque1" style="width: 100%; heigth: 100% !important" />
+						</p:panel>
+						<p:panel styleClass="destaque">
+							<p:graphicImage value="" library="imagens"
+								name="destaque/01Casa02.png" id="destaque2" style="width: 100%; heigth: 100% !important" />
+						</p:panel>
+						<p:panel styleClass="destaque">
+							<p:graphicImage value="" library="imagens"
+								name="destaque/01Casa03.png" id="destaque3" style="width: 100%; heigth: 100% !important" />
+						</p:panel>
+					</p:panel>
 				</p:fieldset>
 			</h:form>
 		</ui:define>
